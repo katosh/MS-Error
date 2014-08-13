@@ -96,8 +96,38 @@ properties of the protein as size or lipophilicity.
 
 \subsection{Mechanic Description}
 
-The cells which ought to be analyzed conatins a descrete numer $n$ of a protein
-of interest.
+The cells which ought to be analyzed has a certain volume $V_C$ and conatins a
+descrete number $N_C$ of the protein of interest. This number can also be
+represented by the concentraion of the protein in the cell $C_C$ by
+\[
+N_C = V_C \cdot C_C
+\]
+This cell lives in a culture of $n$ mostly equal cells which is lysated to
+aquire the lysate with volume $V_L$, number of proteins $N_L = N_C \cdot n$ and
+an concentration $C_L = \frac{N_L}{V_L}$ which is the average of the protein
+concentrations of the individual cells of the culture. In the analyzis of a
+constant state this averaging can be an advantage as it corrects for errors due
+to biological diversity and absorbs some deviations of outlyers. But in the
+observation of a dynamic time dependent process it could be source of a major
+falsification of the data. The stimulus given to the culture does not reach each
+cell at an equal momemt of time and the cells probably do not react equally
+resulting in a divers set of reaction curves with peaks at different times and
+maybe even completly different shapes. An averaging at each individual point of
+time over all the cells would result in a reaction curve that is not
+representative for any typical cell reaction. Another uncertenty is weather
+intercellular communictaion can result in long forced delays of the muessured
+process in some cells. However the resulting deviation of the messured curve to
+the true cell respons is hard to compute and has to be ignored for now. As the
+process which is to be analyzed does only occure over several hours and is
+messured in timestepps of 30 minutes to 2 hours we hope be mimally effected by
+the diversity of respons in time.
+
+However all the folling steps to generate the resulting messurment can be
+modeled in a lot easyer fassion and will be adressed now in a much more
+satisfying manner.
+As the protein travels from the lysate through the filters, ionisation, splicing
+and finally will be detected by a fraction of focus it has probabilty of $1-p$
+to get lost and a probability $p$ to be detected.
 
 
 \end{document}
