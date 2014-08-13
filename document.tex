@@ -87,17 +87,20 @@ values to their errors with only a few paramters to be fitted.
 Experirience in this field of science has shown that such mechanistic approches
 ussually do not work perfectly due to the lack of accurate knowlege about the
 underlying process. Henc alternative modles will be worked out and compared by
-means of ACI, AIC$_C$, BIC, etc.
+means of ACI, AIC$_C$, BIC, Analysis of Variance, Signal-to-Noise
+ratio, Cross-Validation and Minimum Description Length.
+
 If sufficent data is provided we will also compute Shapiro-Wilk tests and the
 like to analyse the distribution of error arround an established prediction,
-e.g. multiple messurments of the same dilution of a certain protein. If ther is
+e.g. multiple messurments of the same dilution of a certain protein. If there is
 more than one of such data sets we could also analyze the errors dependency to
 properties of the protein as size or lipophilicity.
 
 \subsection{Mechanic Description}
 
-The cells which ought to be analyzed has a certain volume $V_C$ and conatins a
-descrete number $N_C$ of the protein of interest. This number can also be
+\subsubsection{Cell to Lysat}
+The cells which ought to be analyzed has a certain
+volume $V_C$ and conatins a descrete number $N_C$ of the protein of interest. This number can also be
 represented by the concentraion of the protein in the cell $C_C$ by
 \[
 N_C = V_C \cdot C_C
@@ -122,12 +125,25 @@ process which is to be analyzed does only occure over several hours and is
 messured in timestepps of 30 minutes to 2 hours we hope be mimally effected by
 the diversity of respons in time.
 
+\subsubsection{Lysat to Detection}
 However all the folling steps to generate the resulting messurment can be
 modeled in a lot easyer fassion and will be adressed now in a much more
 satisfying manner.
 As the protein travels from the lysate through the filters, ionisation, splicing
-and finally will be detected by a fraction of focus it has probabilty of $1-p$
-to get lost and a probability $p$ to be detected.
+and finally detection by a fraction of focus it has probabilty of $1-p$
+to disappear and a probability $p$ to be detected which is equal for each copy
+of the same protein. Hence we observe a Bernoulli trial and the number or
+cencentration of detected proteins would be binomialy distributed. As we process
+a very high number of proteins this destribution converges to a normal
+destribution and additional noise of messurement and lack of resultion makes
+them indestinglishable. Thus this error can be modeled with a addidative normal
+destribution. The random variable of number of detected proteins $N_D$ can be
+discriped as
+\[
+N_D = N_L + \varepsilon_L
+\]
+where $\varepsilon_L \sim \mathcal{N}(0,\sigma)$ is the normally
+distributed error due to random loss of proteins.
 
 
 \end{document}
